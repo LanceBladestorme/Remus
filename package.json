@@ -1,0 +1,12 @@
+{
+  "name": "remus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Clover!!!!!!",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "fs": "0.0.1-security"
+  }
+}
