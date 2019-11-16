@@ -24,4 +24,4 @@ fs.readdir("./devents/", (err, files) => {
   })
 });
 
-client.login();
+client.login(process.env.login);
