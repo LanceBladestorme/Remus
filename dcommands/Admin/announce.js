@@ -42,8 +42,8 @@ if(message.content.startsWith('!')) {
   let color;
   if (!messagePortions[1] || !messagePortions[2]){
     return message.reply(' I need a message and channel to run this command!')
-      .then(message.delete(100)
-      .then(m => m.delete(10000)
+      .then(message.delete(100))
+      .then(m => m.delete(10000))
   }
   if (!messagePortions[4]){
     thumbnail = "https://cdn.discordapp.com/embed/avatars/0.png"
