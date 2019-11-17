@@ -1,7 +1,7 @@
 exports.run = (client, message, args) => {
   let findChannel = c => message.channel.guild.channels.find(x => x.name === c);
   let findRole = role => message.channel.guild.roles.find(x => x.name === role);
-  if (message.author.id !== message.guild.ownerID || message.author.id !== '205450306388099073') {
+  if (message.author.id !== message.guild.ownerID) {
     return;
   }
   if (!findRole('logs')) {
