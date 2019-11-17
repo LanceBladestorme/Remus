@@ -34,17 +34,40 @@ exports.run = (client, message) => {
   })
   .then(message.delete(10))
   }
-  let doEveryone = ''
+
+if(message.content.startsWith('!')) {
+  let thumbnail = messagePortions[4]
+  let msg = messagePortions[2]
+  let title = messagePortions[1]
+  let color;
   if (!messagePortions[1] || !messagePortions[2]){
-    return message.reply(' I need a title in first argument and an announcement in the second!')
-    .then(message.delete(100))
-    .then(m => m.delete(10000))
+    return message.reply(' I need a message and channel to run this command!')
   }
-  if (messagePortions[3] === 'true' || messagePortions[3] === 'false' || !messagePortions[3]) {
-    if (messagePortions[3] === 'true') {
-      doEveryone = '@everyone'
-    }
-  return findAnnouncementChannel.send(doEveryone, { embed: {
+  if (!messagePortions[4]){
+    thumbnail = "https://cdn.discordapp.com/embed/avatars/0.png"
+  }
+  if(messagePortions[3] !== 'RED' || 'BLUE' || 'GREEN || YELLOW') {
+    color = 1
+  }
+  if(messagePortions[3] === 'RED'){
+    color = 13632027
+  }
+  if(messagePortions[3] === 'BLUE'){
+    color = 4886754
+  }
+  if(messagePortions[3] === 'GREEN'){
+    color = 1400594
+  }
+  if(messagePortions[3] === 'YELLOW'){
+    color = 16312092
+  }
+  return findAnnouncementChannel.send('', { embed: {
+    'timestamp': message.createdTimestamp,
+    'color': color,
+    'footer': {
+      'text': message.guild.name,
+      'icon_url': message.guild.iconURL
+    },
     'fields': [
       {
         'name': messagePortions[1],
@@ -52,20 +75,17 @@ exports.run = (client, message) => {
       }
     ],
     "thumbnail": {
-      "url": "https://cdn.discordapp.com/embed/avatars/0.png"
+      "url": thumbnail
     }
   }
 })
 .then(message.delete(100))
 }
-else return message.reply(' I need either true or false if you choose to include that last argument!')
-.then(message.delete(100))
-.then(m => m.delete(10000))
-};
+}
 
 exports.help = {
-  name: 'Special Announcement',
-  description: 'This command sends a special announcement to the announcements channel.',
+  name: 'Announcement',
+  description: 'This command sends an announcement to the announcements channel.',
   requirements: 'User must have the Remus Remote rank',
-  usage: 'To use this command use the following: !announce | title-here | message-here | true-or-false-to-@-everyone'
+  usage: 'To use this command use the following: !announce | title-here | message-here | color | thumbnail-url-here'
 };
