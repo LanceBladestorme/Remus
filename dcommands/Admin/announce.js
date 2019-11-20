@@ -15,6 +15,26 @@ exports.run = (client, message) => {
     if (message.content.includes('@everyone')){
       let doEveryone = '@everyone'
     }
+    if(message.channel.name !== 'bot-commands'){
+      return message.channel.send('', { embed: {
+        'timestamp': message.createdTimestamp,
+        'footer': {
+          'text': message.guild.name,
+          'icon_url': message.guild.iconURL
+        },
+        'fields': [
+          {
+            'name': `ANNOUNCEMENT FROM ${message.author.username.toUpperCase()}`,
+            'value': message.content
+          }
+        ],
+        "thumbnail": {
+          "url": message.author.avatarURL
+        }
+      }
+    })
+    .then(message.delete(10))
+    }
     return findAnnouncementChannel.send(doEveryone, { embed: {
       'timestamp': message.createdTimestamp,
       'footer': {

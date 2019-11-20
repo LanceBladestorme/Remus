@@ -1,5 +1,5 @@
 exports.run = (client, message, args) => {
-  message.channel.send(':eye: DID SOMEBODY SAY WALK?! :eye:')
+  message.channel.send(':eyes: DID SOMEBODY SAY WALK?! :eyes:')
 }
 
 exports.help = {

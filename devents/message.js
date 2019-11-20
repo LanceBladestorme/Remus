@@ -4,7 +4,7 @@ module.exports = (client, message) => {
   if (message.author.bot) return;
   if (message.content.startsWith(prefix)) {
   if (message.channel.name === 'announcements') return message.delete(10).then(message.author.send(`You can't use commands in the #announcements channel!`));
-
+  let checkRemote = message.guild.roles.find(x => x.name === 'Remus Remote')
   let checkSleepMode = message.guild.roles.find(x => x.name === 'sleep mode')
   if (checkSleepMode){
     console.log('Found!')
@@ -21,7 +21,7 @@ module.exports = (client, message) => {
     if (!commandData) return;
     commandData.run(client, message, args)
   }
-  const blacklist = ['nigger', 'nigga', 'skinhead', 'cracker', 'chink', 'niggar', 'nibba', 'faggot', 'fag']
+  const blacklist = ['nigger', 'nigga', 'skinhead', 'cracker', 'chink', 'niggar', 'nibba', 'faggot', 'fag', 'dike']
   const blacklistCheck = message.content.toLowerCase().replace(/\s+/g, '').replace(/!/g, '').replace(/-/g, '').replace(/\./g, '').replace(/\?/g, '').replace(/_/g, '')
   console.log(blacklistCheck)
   for(let i = 0; i < blacklist.length; i++) {
@@ -30,6 +30,9 @@ module.exports = (client, message) => {
     }
   }
   if(message.channel.name === 'announcements'){
+    client.commands.get('announce').run(client, message)
+  }
+  if(message.content.includes('http://www.twitch.tv/')){
     client.commands.get('announce').run(client, message)
   }
 }

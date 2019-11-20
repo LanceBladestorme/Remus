@@ -1,5 +1,5 @@
 exports.run = (client, message, args) => {
-  message.reply(` , no, you're a good boy!`)
+  message.reply(` no, you're a good boy!`)
 }
 
 exports.help = {
