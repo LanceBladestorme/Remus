@@ -7,7 +7,6 @@ module.exports = (client, message) => {
   let checkRemote = message.guild.roles.find(x => x.name === 'Remus Remote')
   let checkSleepMode = message.guild.roles.find(x => x.name === 'sleep mode')
   if (checkSleepMode){
-    console.log('Found!')
     if ((message.guild.members.find(x => x.id === client.user.id).roles.find(x => x.name === 'sleep mode')) && (!message.content.startsWith('!sleep'))) {
       return message.delete(10);
     }}
@@ -23,16 +22,15 @@ module.exports = (client, message) => {
   }
   const blacklist = ['nigger', 'nigga', 'skinhead', 'cracker', 'chink', 'niggar', 'nibba', 'faggot', 'fag', 'dike']
   const blacklistCheck = message.content.toLowerCase().replace(/\s+/g, '').replace(/!/g, '').replace(/-/g, '').replace(/\./g, '').replace(/\?/g, '').replace(/_/g, '')
-  console.log(blacklistCheck)
   for(let i = 0; i < blacklist.length; i++) {
     if (blacklistCheck.includes(blacklist[i])) {
       message.delete(10)
     }
   }
-  if(message.channel.name === 'announcements'){
-    client.commands.get('announce').run(client, message)
+  if(message.channel.name === 'announcements' && !message.content.startsWith(prefix)){
+    client.announcements.get('announcementChannel').run(client, message)
   }
   if(message.content.includes('http://www.twitch.tv/')){
-    client.commands.get('announce').run(client, message)
+    client.announcements.get('twitch').run(client, message)
   }
 }
