@@ -1,5 +1,4 @@
 module.exports = (client, member) => {
-console.log('Someone has left the server!')
 const log = member.guild.channels.find(x => x.name === 'logs');
 const findName = client.users.find(x => x.id === member.id)
 return log ? log.send(`\`USER LEFT: ${findName.username}-${findName.id}\``) : console.log('No logs channel!');
