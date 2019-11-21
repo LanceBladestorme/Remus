@@ -10,7 +10,7 @@
 
 ### Management/Moderation:
 * Hide/Unhide - Hides/Hides a channel in the server and either adds or removes the tag 'hidden' from the name for easy identification.
-* Announcements (Runs automatically in #announcements): Converts messages made in the announcements channel into neat looking embeds. Custom announcements can be made using the announce command.
+* Announcements: Converts messages made in the announcements channel into neat looking embeds. Also converts messages sent with a twitch url into a special announcement. Custom announcements can be made using the announce command.
 * Clear Command - If run, an entire channel will be purged of 100 messages as long as they are not over a year old.
 * Black List/Command Management - Commands not run in proper channels are deleted to prevent spam. Black listed words are automatically deleted and logged for moderators/owners to devide
 
