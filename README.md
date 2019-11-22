@@ -26,4 +26,4 @@
 
 * [Invite Remus to Your Server](https://discordapp.com/api/oauth2/authorize?client_id=643242691903225856&permissions=8&scope=bot)
 * Run !conf in any channel to set up channels and roles.
-* Give yourself the Remus Remote command.
+* Give yourself the Remus Remote role.
