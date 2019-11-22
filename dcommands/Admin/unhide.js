@@ -15,12 +15,12 @@ let hideChannel = chnl => message.channel.guild.channels.get(chnl.id)
   })
 await hideChannel(findChannel) && findChannel.setName(`${args[0]}`)
 .then(message.channel.send(`The channel #\`${args[0]}\` is no longer hidden!`)
-.then(message.delete(10))
 .then(m => m.delete(5000)))
 }
 exports.help = {
   name: 'Removes Hidden Status From a Channel',
-  description: 'This command undos the hide command so that everyone can see the channel again. This command will not work unless, the intended channel has the <Hidden> tag on it.',
-  requirements: 'User must the Remus Remote rank. Channel Must have the <Hidden> tag on the front of its name',
-  usage: 'To use this command, type the following: !unhide channel-here. (DO NOT INCLUDE \'HIDDEN-\' IN THE CHANNEL NAME)'
+  callname: 'unhide',
+  description: 'Makes channel visible to everyone. Will not work unless, the intended channel has the <Hidden> tag on it.',
+  requirements: 'User must the Remus Remote rank. Channel Must have the <Hidden> tag on the front of its name. DO NOT INCLUDE \'HIDDEN-\' IN THE CHANNEL NAME',
+  usage: '!unhide <channel>'
 };

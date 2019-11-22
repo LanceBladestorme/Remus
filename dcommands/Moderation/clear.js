@@ -9,23 +9,21 @@ exports.run = (client, message, args) => {
   }
   if (!args[0]) {
     return message.reply(" please provide a channel to clear!")
-    .then(message.delete(10))
     .then(m => m.delete(3000))
   }
   if (findLogs(args[0])) {
     return findLogs(args[0]).bulkDelete(100, true) && message.reply(' the channel has been cleared!')
-    .then(message.delete(2000))
     .then(m => m.delete(3000))
   }
   if (!findLogs(args[0])) {
     return message.reply(" please provide a valid channel to clear!")
-    .then(message.delete(10))
     .then(m => m.delete(3000))
   }
 };
 exports.help = {
   name: 'Clear A Channel',
-  description: 'This commands clears most of channels messages. If messages are old, this command will not work!',
+  callname: 'clear',
+  description: 'Clears last 100 messages. Will not work on messages over a year old.',
   requirements: 'User must have the Remus Remote role',
-  usage: 'To use type the following: !clear channel-here.'
+  usage: '!clear <channel>'
 }

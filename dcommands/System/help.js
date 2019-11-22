@@ -29,7 +29,8 @@ message.channel.send( { embed: {
 }
 exports.help = {
   name: 'Help Commands',
-  description: 'This command informs users about commands\'s general information and uses.',
+  callname: 'help',
+  description: 'Informs users about commands\'s general information and uses.',
   requirements: 'Anyone can use this command.',
-  usage: 'To use this command type the following: !help command-here.'
+  usage: '!help <command>'
 };

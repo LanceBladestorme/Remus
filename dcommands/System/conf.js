@@ -58,7 +58,6 @@ exports.run = (client, message, args) => {
     message.channel.guild.createChannel('bot-commands', 'text')
     .then(m => m.setParent(findChannel('Bot Channels')))
   }
-  message.delete(10)
   message.channel.guild.channels.tap(chnl => message.channel.guild.channels.get(chnl.id)
     .overwritePermissions(findRole('muted'), {
       SEND_MESSAGES: false,
@@ -68,7 +67,8 @@ exports.run = (client, message, args) => {
 
 exports.help = {
   name: 'Configure Server',
-  description: 'This commands creates neccessary roles and channels neccessary for the bot to run properly.',
-  requirements: 'User must have administrator status',
+  callname: 'conf',
+  description: 'Creates neccessary roles and channels neccessary for the bot to run properly.',
+  requirements: 'Must be Server Owner',
   usage: '!conf'
 };

@@ -7,7 +7,6 @@ exports.run = (client, message) => {
   }
   if(!findAnnouncementChannel){
     return message.reply(' there is no channel named \`#announcements\`! Please change this to use this command!')
-    .then(message.delete(100))
     .then(m => m.delete(10000))
   };
   let thumbnail = messagePortions[4]
@@ -16,7 +15,6 @@ exports.run = (client, message) => {
   let color;
   if (!messagePortions[1] || !messagePortions[2]){
     return message.reply(' I need a message and channel to run this command!')
-      .then(message.delete(100))
       .then(m => m.delete(10000))
   }
   if (!messagePortions[4]){
@@ -55,12 +53,12 @@ exports.run = (client, message) => {
     }
   }
 })
-.then(message.delete(100))
 }
 
 exports.help = {
   name: 'Announcement',
-  description: 'This command sends an announcement to the announcements channel.',
+  callname: 'announce',
+  description: 'Sends an announcement to the announcements channel.',
   requirements: 'User must have the Remus Remote rank',
-  usage: 'To use this command use the following: !announce | title-here | message-here | color | thumbnail-url-here'
+  usage: "NOTE: This command requires special use of \'|\' for usage.\n!announce | <title> | <message> | <color> ( Options: BLUE, RED, GREEN, or YELLOW ) | <thumbnail URL>"
 };
