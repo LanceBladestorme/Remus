@@ -15,7 +15,7 @@ let hideChannel = chnl => message.channel.guild.channels.get(chnl.id)
     VIEW_CHANNEL: false
   })
 await hideChannel(findChannel) && findChannel.setName(`hidden-${findChannel.name}`)
-.then(message.channel.send(`The channel #\`${findChannel.name}\` has been hidden!`) && (m => m.delete(10000)))
+.then(message.channel.send(`The channel #\`${findChannel.name}\` has been hidden!`).then((m => m.delete(10000))))
 }
 exports.help = {
   name: 'Hide a Channel',
