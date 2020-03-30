@@ -54,6 +54,13 @@ exports.run = (client, message, args) => {
           SEND_MESSAGES: false
         }))
   }
+  if(!findChannel('bot-info')) {
+    message.channel.guild.createChannel('bot-info', 'text')
+    .then(m => m.setParent(findChannel('Bot Channels')))
+    .then(m => m.overwritePermissions(findRole('@everyone'), {
+          SEND_MESSAGES: false
+        }))
+  }
   if(!findChannel('bot-commands')) {
     message.channel.guild.createChannel('bot-commands', 'text')
     .then(m => m.setParent(findChannel('Bot Channels')))
