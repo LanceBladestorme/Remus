@@ -31,7 +31,4 @@ module.exports = (client, message) => {
   if(message.channel.name === 'announcements' && !message.content.startsWith(prefix)){
     client.announcements.get('announcementChannel').run(client, message)
   }
-  if(message.content.includes('http://www.twitch.tv/')){
-    client.announcements.get('twitch').run(client, message)
-  }
 }
